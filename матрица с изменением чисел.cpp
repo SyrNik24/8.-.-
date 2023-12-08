@@ -17,18 +17,18 @@ int main()
     cout << "Введите размер матрицы:";
     cin >> Size;
 
-    int **ArrSize = new int*[Size]; //Выделения памяти для диннам. массива
+    int **ArrSize = new int*[Size];
     for (int i = 0;i < Size;i++)
         ArrSize[i] = new int[Size];
 
-    for (int i = 0;i < Size;i++) { //Заполнение массива и вывод в консоль
+    for (int i = 0;i < Size;i++) {
         for (int j = 0;j < Size;j++) {
             ArrSize[i][j] = rand() % 100 + 1;
             cout << setw(5) << ArrSize[i][j];
         }
         cout <<endl<< endl;
     }
-    for (int i = 0;i < Size;i++) {      //Вычисления наименьшего и большего числа
+    for (int i = 0;i < Size;i++) { 
         for (int j = 0;j < Size;j++) {
             if (ArrSize[i][j] < Min) {
                 Min = ArrSize[i][j];
@@ -42,7 +42,7 @@ int main()
             }
         }
     }
-    cout << "Измененная Матрица:" << endl; //Изменение матрицы и ее вывод
+    cout << "Измененная Матрица:" << endl;
     ArrSize[MinRaws][MinCols] = Max;
     ArrSize[MaxRaws][MaxCols] = Min;
     for (int i = 0;i < Size;i++) {
@@ -54,7 +54,7 @@ int main()
     cout << endl << "Индекс минимального значения: "<<MinRaws<<" , " << MinCols << endl;
     cout<< "Индекс максимального значения: " << MaxRaws <<" , " << MaxCols << endl;
 
-    for (int i = 0;i < Size;i++) //Удаление выделенной памяти
+    for (int i = 0;i < Size;i++)
         delete[]ArrSize[i];
     delete[]ArrSize;
     return 0;
